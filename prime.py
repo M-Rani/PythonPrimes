@@ -14,8 +14,7 @@ if __name__ == "__main__":
         # Make an array from 1 - sys.argv[1]
         # Only put numbers that are prime in list
         for x in range(2,int(sys.argv[1])+1):
-            if isPrime(x):
-                _nl.append(x)
+            if isPrime(x):_nl.append(x)
 
         # Print number list
         print(_nl)

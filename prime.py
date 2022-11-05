@@ -20,6 +20,8 @@ if __name__ == "__main__":
         for n in range(0,len(_nl)+1):
             if n > 1:
                 if isPrime(n)==True:nlp.append(n)
+        
+        # Print all prime numbers
         print(nlp)
 
     except OSError as e:

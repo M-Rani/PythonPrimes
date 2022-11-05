@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import sys
-import math
 
 def isPrime(num):
     for n in range(2,int(num**0.5)+1):
@@ -9,20 +8,26 @@ def isPrime(num):
     return True
 
 if __name__ == "__main__":
-    _nl = [] # initial numberlist
-    nlp = [] # numberlist with exlusively primes
+    _nl = [] # initialize numberlist
 
     try:
         # Make an array from 1 - sys.argv[1]
-        for x in range(1,int(sys.argv[1])+1):_nl.append(x)
+        # Only put numbers that are prime in list
+        for x in range(2,int(sys.argv[1])+1):
+            if isPrime(x):
+                _nl.append(x)
 
-        # Append prime values from nl to nlp
-        for n in range(0,len(_nl)+1):
-            if n > 1:
-                if isPrime(n)==True:nlp.append(n)
-        
-        # Print all prime numbers
-        print(nlp)
+        # Print number list
+        print(_nl)
 
     except OSError as e:
+        # Other error
         sys.exit(e.message)
+
+    except IndexError:
+        # If user doesn't provide any argument
+        sys.exit("Error:\n   IndexError!\nUsage:\n   " + sys.argv[0] + " <int>")
+
+    except ValueError:
+        # If user enters a non-number value as an argument
+        sys.exit("Error:\n   '" + sys.argv[1] + "' is an invalid value\nUsage:\n   " + sys.argv[0] + " <int>")
